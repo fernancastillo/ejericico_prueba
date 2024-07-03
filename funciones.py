@@ -67,3 +67,17 @@ def menu_2():
     print("LISTAR TODOS LOS PEDIDOS: ")
     for p in pedidos:
         print(f"RUT: {p['rut']} - Nombre: {p['nombre']} - Dirección: {p['direccion']} - Comuna: {p['comuna']} - Cil. 5 kg: {p['cil_5kg']} - Cil. 15 kg: {p['cil_15kg']} - Total: {p['total']}\n")
+
+def menu_3():
+    if len(pedidos)==0:
+        print("Error! Aún no hay pedidos agregados!")
+    else:
+        print("BUSCAR PEDIDO POR RUT:")
+        rut=int(input("Ingrese el RUT: "))
+        existe=False
+        for p in pedidos:
+            if p['rut']==rut:
+                print(f"RUT: {p['rut']} - Nombre: {p['nombre']} - Dirección: {p['direccion']} - Comuna: {p['comuna']} - Cil. 5 kg: {p['cil_5kg']} - Cil. 15 kg: {p['cil_15kg']} - Total: {p['total']}\n")
+                existe=True
+        if existe==False:
+            print("Error! No se ha encontrado el RUT ingresado!")

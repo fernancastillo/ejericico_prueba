@@ -18,7 +18,7 @@ while True:
     elif opc==2:
         menu_2()
     elif opc==3:
-        pass
+        menu_3()
     elif opc==4:
         pass
     else:
