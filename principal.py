@@ -16,7 +16,7 @@ while True:
     if opc==1:
         menu_1()
     elif opc==2:
-        pass
+        menu_2()
     elif opc==3:
         pass
     elif opc==4:

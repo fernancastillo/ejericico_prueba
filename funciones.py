@@ -18,30 +18,31 @@ def menu_1():
         print("3. Agregar cilindro de 15 kg. ($ 25.500 c/u)")
         print("4. Eliminar cilindro de 15 kg.")
         print("5. Ver pedido actual")
-        print("6. Continuar")
+        print("6. Terminar pedido")
         opc_2=int(input("Ingrese un número del menú: "))
+        os.system("cls")
         if opc_2==1:
             cont_5+=1
             print("Cilindro agregado con éxito!")
-            time.sleep (2)
+            time.sleep (1.5)
         elif opc_2==2:
             if cont_5==0:
                 print("Error! Primero debe agregar un cilindro!")
             else:
                 cont_5-=1
                 print("Cilindro eliminado con éxito!")
-            time.sleep (2)
+            time.sleep (1.5)
         elif opc_2==3:
             cont_15+=1
             print("Cilindro agregado con éxito!")
-            time.sleep (2)
+            time.sleep (1.5)
         elif opc_2==4:
             if cont_15==0:
                 print("Error! Primero debe agregar un cilíndro!")
             else:
                 cont_15-=1
                 print("Cilindro eliminado con éxito!")
-            time.sleep (2)
+            time.sleep (1.5)
         elif opc_2==5:
             print("PEDIDO ACTUAL:")
             print(f"Cilindros de 5 kg: {cont_5} - Cilindros de 15 kg {cont_15} - Total: $ {valor_5*cont_5+valor_15*cont_15}.")
@@ -54,11 +55,15 @@ def menu_1():
         else:
             comuna="San Joaquín"
         pedido={"rut":rut, 
-                "nombre":nombre, 
+                "nombre":nombre,
+                "direccion":direccion, 
                 "comuna":comuna,
-                "cil. 5kg":cont_5, 
-                "cil. 15kg":cont_15, 
+                "cil_5kg":cont_5, 
+                "cil_15kg":cont_15, 
                 "total": valor_5*cont_5+valor_15*cont_15}
         pedidos.append(pedido)
         print("Pedido añadido con éxito!")
-        
+def menu_2():
+    print("LISTAR TODOS LOS PEDIDOS: ")
+    for p in pedidos:
+        print(f"RUT: {p['rut']} - Nombre: {p['nombre']} - Dirección: {p['direccion']} - Comuna: {p['comuna']} - Cil. 5 kg: {p['cil_5kg']} - Cil. 15 kg: {p['cil_15kg']} - Total: {p['total']}\n")
