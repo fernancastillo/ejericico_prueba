@@ -81,3 +81,26 @@ def menu_3():
                 existe=True
         if existe==False:
             print("Error! No se ha encontrado el RUT ingresado!")
+def menu_4():
+    if len(pedidos)==0:
+        print("Error! Aún no hay pedidos agregados!")
+    else:
+        print("IMPRIMIR HOJA DE RUTA")
+        ruta=int(input("Ingrese el número de la comuna (1. Puente Alto - 2. San Bernardo - 3. San Joaquín): "))
+        if ruta==1:
+            ruta="Puente Alto"
+        elif ruta==2:
+            ruta="San Bernardo"
+        else:
+            ruta="San Joaquín"
+        nombre=input("Ingrese nombre del archivo: ")
+        existe=False
+        with open (f"{nombre}.csv", "x", newline="") as archivo:
+            escritor=csv.DictWriter(archivo,['rut', 'nombre','direccion','comuna','cil_5kg','cil_15kg','total'])
+            escritor.writeheader()
+            for p in pedidos:
+                if p['comuna']==ruta:
+                    escritor.writerow(p)
+                    existe=True
+            if existe==False:
+                print("Error! Aún no existen rutas hacia la comuna ingresada!")

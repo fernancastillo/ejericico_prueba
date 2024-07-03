@@ -20,7 +20,7 @@ while True:
     elif opc==3:
         menu_3()
     elif opc==4:
-        pass
+        menu_4()
     else:
         print("Muchas gracias por usar la aplicación. Adios!")
         break
